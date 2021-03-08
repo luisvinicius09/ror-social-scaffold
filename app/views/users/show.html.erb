@@ -3,7 +3,7 @@
 
   <%= request_button(current_user.id, @user.id) %>
   <%= friendship_link(current_user.id, @user.id) %>
-  <%= friends() %>
+  <%= friends(current_user.id, @user.id) %>
   
   <article class="timeline">
     <h3>Recent posts:</h3>
