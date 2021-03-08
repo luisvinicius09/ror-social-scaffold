@@ -2,20 +2,21 @@
   <% @users.each do |user| %>
     <% if user.id === fs.friend_id && !fs.status %>
       <%= user.name %>
-      <%= form_with(model: @friendship, url: 'friendships/'+fs.id.to_s, method: 'PATCH', local: true) do |form| %>
+
+      <%= form_with(model: @friendship, url: 'friendships/'+ fs.id.to_s, method: 'PATCH', local: true) do |form| %>
         <%= form.hidden_field :friend_id, value: fs.friend_id %>
-        <%= form.hidden_field :status, value: true %>
         <div>
           <%= form.submit 'Accept'%>
         </div>
       <% end %>
-      <%= form_with(model: @friendship, url: 'friendships/' + user.id.to_s, method: 'DELETE', local: true) do |form| %>
-        <%= form.hidden_field :user_id, value: user.id %>
+
+      <%= form_with(model: @friendship, url: 'friendships/' + fs.id.to_s, method: 'DELETE', local: true) do |form| %>
         <%= form.hidden_field :friend_id, value: fs.friend_id %>
         <div>
           <%= form.submit 'Refuse'%>
         </div>
       <% end %>
     <% end %>
+    
   <% end %>
 <% end %>
