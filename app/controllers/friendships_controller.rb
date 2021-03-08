@@ -1,7 +1,6 @@
 class FriendshipsController < ApplicationController
   def index
     @friendships = Friendship.where(user_id: current_user.id)
-    @users = User.all
   end
   
   def create

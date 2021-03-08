@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.request {
+  text-align: center;
+  width: 200px;
+}
+.btn-submit {
+  width: 200px;
+}
