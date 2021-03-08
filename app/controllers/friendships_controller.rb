@@ -4,7 +4,7 @@ class FriendshipsController < ApplicationController
   end
 
   def friends
-    @friendships = Friendship.where(user_id: current_user.id)
+    @friendships = Friendship.where(user_id: current_user.id, status: true)
   end
 
   def create
