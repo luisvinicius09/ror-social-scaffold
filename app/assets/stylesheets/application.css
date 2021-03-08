@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 .btn {
   border: 1px solid green;
   padding: 7px;
@@ -33,6 +32,7 @@
   text-align: center;
   width: 200px;
 }
+
 .btn-submit {
   width: 200px;
 }
