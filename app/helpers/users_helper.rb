@@ -10,4 +10,8 @@ module UsersHelper
       link_to 'Friendship requests', friendships_path, class: 'btn'
     end
   end
+  
+  def friends()
+    link_to 'Friends', friendships_path, class: 'btn'
+  end
 end
