@@ -1,3 +1,4 @@
+
 <% @friendships.each do |fs| %>
   <% @users.each do |user| %>
     <% if user.id === fs.friend_id && !fs.status %>
@@ -16,7 +17,7 @@
           <%= form.submit 'Refuse'%>
         </div>
       <% end %>
+
     <% end %>
-    
   <% end %>
 <% end %>
