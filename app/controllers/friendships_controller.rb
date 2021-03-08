@@ -2,7 +2,11 @@ class FriendshipsController < ApplicationController
   def index
     @friendships = Friendship.where(user_id: current_user.id)
   end
-  
+
+  def friends
+    @friendships = Friendship.where(user_id: current_user.id)
+  end
+
   def create
     new_friend_id = params[:friend_id]
     @friendship = Friendship.find_or_initialize_by(user_id: current_user.id, friend_id: new_friend_id, status: false)
