@@ -1,5 +1,7 @@
 class FriendshipsController < ApplicationController
   def index
+    @friendships = Friendship.where(user_id: current_user.id)
+    @users = User.all
   end
   
   def create
@@ -9,14 +11,31 @@ class FriendshipsController < ApplicationController
     if @friendship.save && @inverse_friendship.save
       flash[:notice] = 'You sent a friend request..'
     else
-      flash[:alert] = 'Something wrong happened'
+      flash[:alert] = 'Something wrong happened...'
     end
     redirect_to users_path
   end
 
   def update
+    new_friend_id = params[:friend_id]
+    @friendship = Friendship.where(user_id: current_user.id, friend_id: new_friend_id)
+    @inverse_friendship = Friendship.where(user_id: new_friend_id, friend_id: current_user.id)
+    if @friendship.update_all(status: true) && @inverse_friendship.update_all(status: true)
+      flash[:notice] = 'You have a new a friend!'
+    else
+      flash[:alert] = 'Something wrong happened...'
+    end
+    redirect_to friendships_path
   end
 
   def destroy
+    new_friend_id = params[:friend_id]
+    @friendship = Friendship.where(user_id: current_user.id, friend_id: new_friend_id)
+    @inverse_friendship = Friendship.where(user_id: new_friend_id, friend_id: current_user.id)
+    if Friendship.destroy(@friendship) && Friendship.destroy(@inverse_friendship)
+      flash[:notice] = 'You refused the request!'
+    else
+      notice[:alert] = 'Something wrong happened...'
+    end
   end
 end
