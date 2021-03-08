@@ -12,6 +12,6 @@ module UsersHelper
   end
   
   def friends()
-    link_to 'Friends', friendships_path, class: 'btn'
+    link_to 'Friends', friends_path, class: 'btn'
   end
 end
