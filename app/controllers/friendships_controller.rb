@@ -30,12 +30,13 @@ class FriendshipsController < ApplicationController
 
   def destroy
     new_friend_id = params[:friend_id]
-    @friendship = Friendship.where(user_id: current_user.id, friend_id: new_friend_id)
-    @inverse_friendship = Friendship.where(user_id: new_friend_id, friend_id: current_user.id)
-    if Friendship.destroy(@friendship) && Friendship.destroy(@inverse_friendship)
+    @friendship = Friendship.find_by(user_id: current_user.id, friend_id: new_friend_id)
+    @inverse_friendship = Friendship.find_by(user_id: new_friend_id, friend_id: current_user.id)
+    if Friendship.destroy(@friendship.id) && Friendship.destroy(@inverse_friendship.id)
       flash[:notice] = 'You refused the request!'
     else
       notice[:alert] = 'Something wrong happened...'
     end
+    redirect_to friendships_path
   end
 end
