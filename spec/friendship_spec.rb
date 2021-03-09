@@ -21,7 +21,7 @@ RSpec.describe Friendship, :type => :model do
       fs.update(status: true)
       expect(Friendship.find(fs.id)).to eql(Friendship.first)
     end
-  
+
     it 'rejects a friendship' do
       user1 = User.create(id: 1, email: 'test@test.com', password: '123456', created_at: Time.now,
                           updated_at: Time.now, name: 'Test', gravatar_url: 'http://www.gravatar.com/avatar/%22')
@@ -32,5 +32,4 @@ RSpec.describe Friendship, :type => :model do
       expect(Friendship.destroy(Friendship.first.id)).to eql(fs)
     end
   end
-
 end
