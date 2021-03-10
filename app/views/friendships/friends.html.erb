@@ -3,5 +3,8 @@
 <ul>
   <% @friendships.each do |fs| %>
     <li><%= fs.friend.name %></li>
+    <div class="profile-btn">
+      <%= link_to 'See Profile',  user_path(fs.friend.id), class: 'profile-link' %>
+    </div>
   <% end %>
 </ul>
