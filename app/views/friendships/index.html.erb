@@ -1,6 +1,6 @@
 <h2>Your friendship requests:</h2>
 <% @friendships.each do |fs| %>
-  <% if !fs.status && current_user.id === fs.user_id || current_user.id === fs.friend_id %>
+  <% if who_send(fs) && !fs.status %>
   
   <div class="request">
     <h3 class='user-name'><%= fs.friend.name %></h3>
@@ -20,5 +20,6 @@
       <% end %>
       <hr>
   </div>
+
   <% end %>
 <% end %>
