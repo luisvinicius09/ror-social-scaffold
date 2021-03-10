@@ -1,6 +1,16 @@
-<li>
-  Name: <%= user.name %>
-  <span class="profile-link">
-    <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
-  </span>
-</li>
+<% unless friends.include?(user) %>
+  <li>
+    Name: <%= user.name %>
+    <span class="profile-link">
+      <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
+    </span>
+    <%= form_with(model: @friendship, url: friendships_path, method: 'POST', local: true) do |form|%>
+      <div>
+        <%= form.hidden_field :friend_id, value: user.id %>
+        <div>
+          <%= form.submit 'Send request'%>
+        </div>
+      </div>
+    <% end %>
+  </li>
+<% end %>
