@@ -20,5 +20,4 @@ class User < ApplicationRecord
 
   has_many :pending_friendships, -> { where status: false }, class_name: :friendships, foreign_key: :user_id
   has_many :pending_friends, through: :pending_friendships, source: :friend
-
 end

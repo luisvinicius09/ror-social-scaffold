@@ -3,9 +3,9 @@ module FriendshipsHelper
     link_to 'Friends', friends_path, class: 'btn' unless current != id
   end
 
-  def who_send(fs)
-    user1 = Friendship.find_by(user_id: fs.user_id, friend_id: fs.friend_id)
-    user2 = Friendship.find_by(user_id: fs.friend_id, friend_id: fs.user_id)
+  def who_send(fsp)
+    user1 = Friendship.find_by(user_id: fsp.user_id, friend_id: fsp.friend_id)
+    user2 = Friendship.find_by(user_id: fsp.friend_id, friend_id: fsp.user_id)
     user1.id > user2.id
   end
 
