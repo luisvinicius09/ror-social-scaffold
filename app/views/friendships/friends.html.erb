@@ -2,9 +2,11 @@
 
 <ul>
   <% @friendships.each do |fs| %>
-    <li><%= fs.friend.name %></li>
-    <div class="profile-btn">
-      <%= link_to 'See Profile',  user_path(fs.friend.id), class: 'profile-link' %>
+    <div class="d-flex profile-detail">
+      <p><%= fs.friend.name %></p>
+      <div class="profile-btn">
+        <%= link_to 'See Profile',  user_path(fs.friend.id), class: 'profile-link' %>
+      </div>
     </div>
   <% end %>
 </ul>

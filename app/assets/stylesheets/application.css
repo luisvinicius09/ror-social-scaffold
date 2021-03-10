@@ -14,6 +14,10 @@
  *= require_self
  */
 
+.d-flex {
+  display: flex;
+}
+
 .btn {
   border: 1px solid green;
   padding: 7px;
@@ -35,4 +39,26 @@
 
 .btn-submit {
   width: 200px;
+}
+
+.profile-btn {
+  border: 1px solid green;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.profile-btn:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: green;
+}
+
+.profile-detail {
+  margin-top: 13px;
+}
+
+.profile-detail p {
+  position: relative;
+  top: 5px;
+  margin-right: 4px;
 }
