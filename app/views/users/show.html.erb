@@ -1,9 +1,11 @@
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
 
-  <%= request_button(current_user.id, @user.id) %>
+  <% unless friends.include?(@user) %>
+    <%= request_button(current_user.id, @user.id) %>
+  <% end %>
   <%= friendship_link(current_user.id, @user.id) %>
-  <%= friends(current_user.id, @user.id) %>
+  <%= friends_btn(current_user.id, @user.id) %>
   
   <article class="timeline">
     <h3>Recent posts:</h3>
