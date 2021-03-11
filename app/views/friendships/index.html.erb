@@ -1,0 +1,25 @@
+<h2>Your friendship requests:</h2>
+<% @friendships.each do |fs| %>
+  <% if who_send(fs) && !fs.status %>
+  
+  <div class="request">
+    <h3 class='user-name'><%= fs.friend.name %></h3>
+
+    <%= form_with(model: @friendship, url: 'friendships/'+ fs.id.to_s, method: 'PATCH', local: true) do |form| %>
+      <%= form.hidden_field :friend_id, value: fs.friend_id %>
+        <div class="btn-submit">
+          <%= form.submit 'Accept'%>
+        </div>
+      <% end %>
+
+    <%= form_with(model: @friendship, url: 'friendships/' + fs.id.to_s, method: 'DELETE', local: true) do |form| %>
+      <%= form.hidden_field :friend_id, value: fs.friend_id %>
+        <div class="btn-submit">
+          <%= form.submit 'Refuse' %>
+        </div>
+      <% end %>
+      <hr>
+  </div>
+
+  <% end %>
+<% end %>

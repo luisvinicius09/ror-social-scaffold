@@ -1,0 +1,8 @@
+<%= form_with(model: @friendship, url: friendships_path, method: 'POST', local: true) do |form|%>
+  <div>
+    <%= form.hidden_field :friend_id, value: @user.id %>
+    <div>
+      <%= form.submit 'Send request'%>
+    </div>
+  </div>
+<% end %> 
