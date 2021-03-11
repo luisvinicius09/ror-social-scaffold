@@ -31,5 +31,15 @@ RSpec.describe Friendship, :type => :model do
 
       expect(Friendship.destroy(Friendship.first.id)).to eql(fs)
     end
+
+    it 'checks if the friendship belongs to the user' do
+      friendship = Friendship.reflect_on_association(:user)
+      expect(friendship.macro).to eql(:belongs_to)
+    end
+
+    it 'checks if the friendship belongs to the inverted user' do
+      friendship = Friendship.reflect_on_association(:friend)
+      expect(friendship.macro).to eql(:belongs_to)
+    end
   end
 end
