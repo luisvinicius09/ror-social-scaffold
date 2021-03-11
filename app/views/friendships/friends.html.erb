@@ -1,0 +1,12 @@
+<h2>Your friends:</h2>
+
+<ul>
+  <% @friendships.each do |fs| %>
+    <div class="d-flex profile-detail">
+      <p><%= fs.friend.name %></p>
+      <div class="profile-btn">
+        <%= link_to 'See Profile',  user_path(fs.friend.id), class: 'profile-link' %>
+      </div>
+    </div>
+  <% end %>
+</ul>
