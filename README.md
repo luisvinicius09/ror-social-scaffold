@@ -9,7 +9,7 @@
 
 ## Live Demo
 
-TBA
+[Live version](https://pure-inlet-28390.herokuapp.com/users/sign_in)
 
 
 ## Getting Started
