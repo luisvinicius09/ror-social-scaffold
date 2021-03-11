@@ -1,6 +1,6 @@
 # Scaffold for social media app with Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students, to implement a friendship system.
 
 ## Built With
 
@@ -18,16 +18,17 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.6.3
+Ruby: 2.7.2
 Rails: 5.2.3
 Postgres: >=9.5
 
 ### Setup
 
-Instal gems with:
+Install gems with:
 
 ```
-bundle install
+   bundle update
+   bundle install
 ```
 
 Setup database with:
@@ -67,27 +68,23 @@ Open `http://localhost:3000/` in your browser.
 
 ### Deployment
 
-TBA
+> To deploy the rails project on [Heroku](www.heroku.com), please follow this [guide](https://devcenter.heroku.com/articles/getting-started-with-rails6#heroku-gems)
 
 ## Authors
 
-TBA
+👤 **Luis Vinicius Marques**
+
+- GitHub: [@luisvinicius09](https://github.com/luisvinicius09)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/luis-vinicius)
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/luisvinicius09/ror-social-scaffold/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
-
-TBA
-
-## 📝 License
-
-TBA
 
